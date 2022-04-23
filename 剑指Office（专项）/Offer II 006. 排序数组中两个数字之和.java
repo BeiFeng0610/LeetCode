@@ -1,3 +1,6 @@
+/*
+    该题注意边界，下标不能重复使用。
+*/
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int[] res = new int[2];
