@@ -1,3 +1,4 @@
+// 此题和上一题一样，匹配后记录起始下标，继续滑动。
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();
