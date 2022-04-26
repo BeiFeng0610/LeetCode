@@ -5,6 +5,7 @@ class Solution {
         if (tlen > slen) {
             return "";
         }
+        // 记录子串的字母个数
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < tlen; i++) {
             map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0)+1);
@@ -13,22 +14,29 @@ class Solution {
         char[] cs = s.toCharArray();
         while (r < slen) {
             if (map.containsKey(cs[r])) {
+                // 匹配字母的个数的标记-1
                 map.put(cs[r], map.get(cs[r]) - 1);
+                // 判断是否满足窗口子串包含全部的字母
                 boolean tag = con(map);
                 while (tag) {
                     int tmp = min;
+                    // 记录最短长度
                     min = Math.min(min, r - l + 1);
                     if (min < tmp) {
+                        // 记录最短结尾
                         end = r + 1;
                     }
+                    // 左边界收敛，字母匹配子串则标记+1
                     if (map.containsKey(cs[l])) {
                         map.put(cs[l], map.get(cs[l]) + 1);
                     }
+                    // 左边界右移一位
                     l++;
+                    // 继续右移，直到下一个可匹配的字母下标
                     while (l < slen && !map.containsKey(cs[l])) {
                         l++;
                     }
-
+                    // 判断窗口子串是否还包含全部字母，包含左边界继续右移，并记录最短长度
                     tag = con(map);
                 }
             }
@@ -86,8 +94,9 @@ class Solution2 {
             //cnt2[x]++后如果等于cnt1[x],代表字符 * 已全部找到
             int x = s.charAt(right)-'A';
             cnt2[x]++;
+            // 窗口子串下标和子串下标相等则相对应的字母全部找到，标记-1
             if(cnt1[x]==cnt2[x]) diff--;
-
+            // 标记==0，则窗口包含子串
             while(diff==0){
                 //对比赋值res
                 int l = right-left+1;
@@ -97,7 +106,7 @@ class Solution2 {
                 }
                 //cnt1[y]!=0表示 t 含有此字符
                 //只要cnt2[y]的值不小于cnt1[y]，那么结果不影响
-                //如果小于则diff++;
+                // 判断左边界右移是否对窗口子串有影响
                 int y = s.charAt(left)-'A';
                 cnt2[y]--;
                 if(cnt1[y]!=0&&cnt2[y]<cnt1[y]){
