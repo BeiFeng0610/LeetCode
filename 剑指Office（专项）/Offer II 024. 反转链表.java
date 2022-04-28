@@ -1,4 +1,5 @@
 class Solution {
+    // 创建新节点，然后遍历旧结点，头插法即可
     public ListNode reverseList(ListNode head) {
         ListNode root = new ListNode(-1);
         root.next = null;
