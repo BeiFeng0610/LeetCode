@@ -6,6 +6,7 @@ class Solution {
             stack.push(tmp);
             tmp = tmp.next;
         }
+        // 用辅助栈，依次添加到原队列。
         while (head != null && head != stack.peek()) {
             ListNode node = stack.pop();
             stack.peek().next = null;
@@ -17,6 +18,7 @@ class Solution {
 }
 
 class Solution2 {
+    // 找到中点，然后反转后半链表，然后合并
     public void reorderList(ListNode head) {
         ListNode mid = midNode(head);
         ListNode l1 = head;
