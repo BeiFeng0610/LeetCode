@@ -13,6 +13,7 @@ class Solution {
         ListNode res = new ListNode(-1);
         int jin = 0;
         while (!stack1.isEmpty() || !stack2.isEmpty() || jin != 0) {
+            // 两个栈，不为空则弹出，相加记录进位。然后创建新的链表。
             ListNode node = new ListNode();
             int n1 = stack1.peek() == null ? 0 : stack1.pop().val;
             int n2 = stack2.peek() == null ? 0 : stack2.pop().val;
