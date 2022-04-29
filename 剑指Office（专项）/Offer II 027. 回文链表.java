@@ -1,4 +1,5 @@
 class Solution {
+    // 元素都是单位，追加字符串反转对比即可。
     public boolean isPalindrome(ListNode head) {
         StringBuilder sb = new StringBuilder();
         while (head != null) {
@@ -12,6 +13,7 @@ class Solution {
 }
 
 class Solution2 {
+    // 找到中点，反转后半部分，然后对比。
     public boolean isPalindrome(ListNode head) {
         ListNode mid = midNode(head);
         ListNode l1 = head;
