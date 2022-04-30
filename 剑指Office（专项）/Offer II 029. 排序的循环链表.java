@@ -3,14 +3,14 @@ class Solution {
         Node cur = null;
         Node next = null;
         Node realHead = null;
-        //空的
+        // 空结点处理
         if(head == null){
             head = new Node(insertVal);
             head.next = head;
             return head;
         }
 
-        //找到真正的头节点
+        //找到真正的头节点，cur为尾结点。next为头节点
         cur = head;
         next = head.next;
         while(cur.val <= next.val){
