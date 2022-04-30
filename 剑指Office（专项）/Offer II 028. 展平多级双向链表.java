@@ -1,4 +1,5 @@
 class Solution {
+    // 用list记录dfs遍历的顺序，然后依次连接即可。
     List<Node> list = new ArrayList<>();
 
     public Node flatten(Node head) {
