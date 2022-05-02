@@ -62,24 +62,24 @@ class LRUCache {
             moveToHead(node);
         }
     }
-
+    // 添加头节点
     private void addToHead(DLinkedNode node) {
         node.prev = head;
         node.next = head.next;
         head.next.prev = node;
         head.next = node;
     }
-
+    // 删除指定结点
     private void removeNode(DLinkedNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
-
+    // 删除结点，然后移到头节点
     private void moveToHead(DLinkedNode node) {
         removeNode(node);
         addToHead(node);
     }
-
+    // 删除尾结点
     private DLinkedNode removeTail() {
         DLinkedNode res = tail.prev;
         removeNode(res);
