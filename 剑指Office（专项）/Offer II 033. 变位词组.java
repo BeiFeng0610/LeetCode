@@ -1,14 +1,18 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         int len = strs.length;
+        // map，value存放list集合
         Map<String, List<String>> map = new HashMap<>();
         for (int i = 0; i < len; i++) {
             char[] chars = strs[i].toCharArray();
+            // 字符串排序
             Arrays.sort(chars);
             String s = new String(chars);
+            // 放到哈希表，如果不存在则新建一个哈希表，放入排序之前的元素
             if (!map.containsKey(s)) {
                 map.put(s, new ArrayList<>());
             }
+            // 存在，则继续添加。
             map.get(s).add(strs[i]);
         }
         return new ArrayList<>(map.values());
