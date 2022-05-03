@@ -29,7 +29,7 @@ class Solution2 {
                 int prevIndex = stack.pop();
                 ans[prevIndex] = i - prevIndex;
             }
-            // 栈空进栈，当前温度小于前一天温度进栈
+            // 栈空进栈，当前温度小于前一天温度进栈，存放的是下标
             stack.push(i);
         }
         return ans;
