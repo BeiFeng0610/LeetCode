@@ -10,8 +10,11 @@ class MovingAverage {
     }
 
     public double next(int val) {
+        // 加入队列
         queue.offer(val);
+        // 计算总和
         sum += val;
+        // 队列size大于>窗口宽度则总和减去队头
         if (queue.size() > size) {
             sum -= queue.poll();
         }
@@ -28,8 +31,11 @@ class MovingAverage2 {
     }
 
     public double next(int val) {
+        // 循环数组
         int idx = count % size;
+        // count<size时 queue[idx] 总是为0，因为还没有添加
         sum = sum + val - queue[idx];
+        // count>size时，覆盖
         queue[idx] = val;
         count++;
         return sum * 1.0 / Math.min(count, size);
