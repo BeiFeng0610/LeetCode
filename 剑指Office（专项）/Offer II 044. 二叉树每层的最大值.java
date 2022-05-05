@@ -1,6 +1,6 @@
 class Solution {
     public List<Integer> largestValues(TreeNode root) {
-
+        
         List<Integer> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         if (root == null) {
@@ -9,8 +9,10 @@ class Solution {
         queue.offer(root);
         while (!queue.isEmpty()) {
             int max = Integer.MIN_VALUE;
+            // 当前层结点树
             int curlen = queue.size();
             for (int i = 0; i < curlen; i++) {
+                // 弹出结点，记录最大值
                 TreeNode tmp = queue.poll();
                 max = Math.max(max, tmp.val);
                 if (tmp.left != null) {
@@ -38,7 +40,8 @@ class Solution2 {
         if(node == null) {
             return;
         }
-        if(res.size() == depth) { // 表示首次进入该层，该层最大值预设为node.val
+        // 表示首次进入该层，该层最大值预设为node.val
+        if(res.size() == depth) { 
             res.add(node.val);
         }
         res.set(depth, Math.max(res.get(depth), node.val)); // #1 利用当前结点的层号信息，更新所属层的最大值
