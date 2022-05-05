@@ -4,6 +4,7 @@ class Solution {
         queue.offer(root);
         int res = root.val;
         while (!queue.isEmpty()) {
+            // 记录每层的第一个结点
             res = queue.peek().val;
             int curlen = queue.size();
             for (int i = 0; i < curlen; i++) {
