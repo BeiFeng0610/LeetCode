@@ -35,12 +35,11 @@ class Solution2 {
         if(node == null) {
             return;
         }
-        // 表示首次进入该层，该层预设为node.val
+        // 深度搜索，优先遍历右子树，每进新的一层都是最右边结点
         if(res.size() == depth) {
             res.add(node.val);
         }
-        res.set(depth, node.val);
-        dfs(node.left, depth + 1);
         dfs(node.right, depth + 1);
+        dfs(node.left, depth + 1);
     }
 }
