@@ -7,6 +7,7 @@ class Solution {
         }
         queue.offer(root);
         while (!queue.isEmpty()) {
+            // 记录每层最后一个结点
             res.add(queue.getLast().val);
             int curlen = queue.size();
             for (int i = 0; i < curlen; i++) {
