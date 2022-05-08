@@ -18,6 +18,7 @@ class Solution {
         if (node.val == p.val) {
             pre = node;
         }*/
+        // 返回结点为空，且找到第一个大于p结点的结点，赋值即可，然后直接返回
         if (res == null && node.val > p.val) {
             res = node;
             return;
