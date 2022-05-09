@@ -2,7 +2,6 @@ class Solution {
     Set<Integer> set;
     public boolean findTarget(TreeNode root, int k) {
         set = new HashSet<>();
-
         return dfs(root, k);
     }
 
@@ -10,9 +9,11 @@ class Solution {
         if (node == null) {
             return false;
         }
+        // 如果set集合中存在 k-node.val 结点则返回true
         if (set.contains(k - node.val)) {
             return true;
         }
+        // 不存在则加入set
         set.add(node.val);
         return dfs(node.left, k)||dfs(node.right, k);
     }
@@ -24,6 +25,7 @@ class Solution2 {
         queue.offer(root);
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
+            // 结点弹出，判断 k - node.val 值是否存在set，判断返回
             if (set.contains(k - node.val)) {
                 return true;
             }
