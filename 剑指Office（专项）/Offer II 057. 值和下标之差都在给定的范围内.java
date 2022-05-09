@@ -1,13 +1,17 @@
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         int n = nums.length;
+        // 为了防止溢出，用long类型存储
         TreeSet<Long> set = new TreeSet<Long>();
         for (int i = 0; i < n; i++) {
+            // treeset的ceiling 是返回大于或等于给定值的最小值没有则null。 num[i] - num[j] <= t ==> num[j] >= num[i] - t; 
             Long ceiling = set.ceiling((long) nums[i] - (long) t);
+            // 如果不为null，判断是否符合条件 
             if (ceiling != null && ceiling <= (long) nums[i] + (long) t) {
                 return true;
             }
             set.add((long) nums[i]);
+            // 保持窗口宽度
             if (i >= k) {
                 set.remove((long) nums[i - k]);
             }
@@ -15,7 +19,6 @@ class Solution {
         return false;
     }
 }
-
 
 
 class Solution2 {
