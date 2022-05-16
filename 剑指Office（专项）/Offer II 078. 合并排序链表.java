@@ -1,12 +1,13 @@
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode ans = null;
+        // 遍历所有链表，挨着对比
         for (int i = 0; i < lists.length; ++i) {
             ans = mergeTwoLists(ans, lists[i]);
         }
         return ans;
     }
-
+    // 合并两个链表
     public ListNode mergeTwoLists(ListNode a, ListNode b) {
         if (a == null || b == null) {
             return a != null ? a : b;
@@ -33,6 +34,7 @@ class Solution2 {
         return merge(lists, 0, lists.length - 1);
     }
 
+    // 归并链表，拆除一个个链表，然后回溯归并 并合并。
     public ListNode merge(ListNode[] lists, int l, int r) {
         if (l == r) {
             return lists[l];
@@ -80,25 +82,30 @@ class Solution3 {
             return this.val - status2.val;
         }
     }
-
+    // 用堆排序把每个结点的状态存进去，状态包括值和结点
     PriorityQueue<Status> queue = new PriorityQueue<Status>();
 
     public ListNode mergeKLists(ListNode[] lists) {
+        // 把所有链表的头节点的状态都放到堆中
         for (ListNode node: lists) {
             if (node != null) {
                 queue.offer(new Status(node.val, node));
             }
         }
+        // 临时头节点
         ListNode head = new ListNode(0);
         ListNode tail = head;
+        // 队列不空，就取出堆顶的最小结点
         while (!queue.isEmpty()) {
             Status f = queue.poll();
             tail.next = f.ptr;
             tail = tail.next;
+            // 取出结点有下一个结点继续存入堆内
             if (f.ptr.next != null) {
                 queue.offer(new Status(f.ptr.next.val, f.ptr.next));
             }
         }
+        // 最终返回
         return head.next;
     }
 }
