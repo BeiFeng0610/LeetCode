@@ -4,6 +4,7 @@ class Solution {
             return nums[0];
         }
 
+        // 不偷第一家，最大
         int[] dp = new int[nums.length];
         int pre = 0;
         int cur = 0;
@@ -15,6 +16,7 @@ class Solution {
         int l = dp[nums.length - 1];
         pre = 0;
         cur = 0;
+        // 不偷最后一家，比较那个大即可
         for (int i = 0; i < nums.length - 1; i++) {
             dp[i] = Math.max(cur, pre + nums[i]);
             pre = cur;
