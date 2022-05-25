@@ -56,13 +56,16 @@ class Solution {
         return max;
     }
     public void dfs(int[][] grid, int i, int j) {
+        // 判断越界
         if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0) {
             return;
         }
+        // 如果为1则累加，然后标记为0
         if (grid[i][j] == 1) {
             cur++;
             grid[i][j]=0;
         }
+        // 深度遍历上下左右
         dfs(grid, i - 1, j);
         dfs(grid, i + 1, j);
         dfs(grid, i, j + 1);
