@@ -26,6 +26,7 @@ class Solution2 {
         for(int i = 1; i <= target; i++){
             for(int num : nums){
                 if(num <= i) {
+                    // 比如：dp[1]表示组合为1的个数，则组合为2的可以表示为 dp[2] = dp[1] + 1，所以1表示初始值dp[0]:因为0只有一种情况就是0
                     dp[i] += dp[i - num];
                 }
             }
