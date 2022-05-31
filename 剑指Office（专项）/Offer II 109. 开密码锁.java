@@ -18,6 +18,7 @@ class Solution {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 String status = queue.poll();
+                // 获取给定密码旋转一次的所有情况，然后判断。
                 for (String nextStatus : get(status)) {
                     if (!seen.contains(nextStatus) && !dead.contains(nextStatus)) {
                         if (nextStatus.equals(target)) {
@@ -32,6 +33,7 @@ class Solution {
         return -1;
     }
 
+    // 向前转，下面的是向后转
     public char numPrev(char x){
         return x == '0' ? '9' : (char) (x - 1);
     }
@@ -40,6 +42,7 @@ class Solution {
         return x == '9' ? '0' : (char) (x + 1);
     }
 
+    // 列出给定密码的所有的旋转可能性，指旋转一次的所有可能性
     public List<String> get(String status){
         List<String> ret = new ArrayList<>();
         char[] array = status.toCharArray();
