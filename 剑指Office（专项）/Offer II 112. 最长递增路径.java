@@ -7,6 +7,7 @@ class Solution {
         }
         m = matrix.length;
         n = matrix[0].length;
+        // 缓存数组
         int[][] memo = new int[m][n];
         int ret = 0;
         for (int i = 0; i < m; i++) {
@@ -23,6 +24,7 @@ class Solution {
         ++memo[i][j];
         for (int[] dir : dirs) {
             int newM = i + dir[0], newN = j + dir[1];
+            // 边界符合，更新当前坐标开始最大的递增路径。
             if (newM >= 0 && newM < m && newN >= 0 && newN < n && matrix[newM][newN] > matrix[i][j]) {
                 memo[i][j] = Math.max(memo[i][j], dfs(matrix, newM, newN, memo) + 1);               
             }
