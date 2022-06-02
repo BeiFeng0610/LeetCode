@@ -15,15 +15,11 @@ class Solution {
     }
 
     public void dfs(int[][] isConnected, int city) {
-        if (tag[city]) {
-            return;
-        }
         tag[city] = true;
         for (int i = 0; i < cityCount; i++) {
-            if (i != city && isConnected[city][i] == 1) {
+            if (i != city && isConnected[city][i] == 1 && !tag[i]) {
                 dfs(isConnected, i);
             }
         }
-
     }
 }
