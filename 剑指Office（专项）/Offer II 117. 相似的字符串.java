@@ -7,7 +7,7 @@ class Solution {
         for (int i = 0; i < n; i++) {
             map.put(strs[i], new ArrayList<>());
         }
-
+        // 构建图
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (isSimilar(strs[i], strs[j])) {
@@ -32,6 +32,7 @@ class Solution {
         while (!queue.isEmpty()) {
             int node = queue.poll();
             for (int j = 0; j < strs.length; j++) {
+                // 把所有相似的字符都标记
                 if (!vis[j] && map.get(strs[node]).contains(strs[j])) {
                     queue.offer(j);
                     vis[j] = true;
@@ -39,7 +40,7 @@ class Solution {
             }
         }
     }
-
+    // 如果相似就加上边。
     public boolean isSimilar(String s1, String s2) {
         int cnt = 0;
         for (int i = 0; i < s1.length(); i++) {
@@ -71,6 +72,7 @@ class Solution2 {
             }
         }
         int ret = 0;
+        // 因为相似是双向的，如果当前字符有相似的字符，那么就不会等于自身下标，等于自身下标说明后面没有相似的字符了。
         for (int i = 0; i < n; i++) {
             if (f[i] == i) {
                 ret++;
