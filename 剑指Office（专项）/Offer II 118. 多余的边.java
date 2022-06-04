@@ -18,10 +18,11 @@ class Solution {
         return new int[0];
     }
 
+    // 更新结点能连接到 最新的结点
     public void union(int[] parent, int index1, int index2) {
         parent[find(parent, index1)] = find(parent, index2);
     }
-
+    // 找到结点当前连接到的最远的结点。
     public int find(int[] parent, int index) {
         if (parent[index] != index) {
             parent[index] = find(parent, parent[index]);
