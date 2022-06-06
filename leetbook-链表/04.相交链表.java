@@ -3,6 +3,7 @@ class Solution {
         if (headA == null || headB == null) {
             return null;
         }
+        // 遍历的结点数量一定相同，全部遍历完  两边会同时为null
         ListNode hA = headA, hB = headB;
         while (hA != hB) {
             hA = hA == null ? headB : hA.next;
