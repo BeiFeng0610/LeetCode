@@ -9,6 +9,7 @@ class MyLinkedList {
     ListNode head;
     ListNode tail;
 
+    // 弄个头尾结点，插入删除查找时，根据长度判断需要头开始还是尾开始
     public MyLinkedList() {
         head = new ListNode(-1);
         tail = new ListNode(-1);
