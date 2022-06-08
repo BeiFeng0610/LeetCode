@@ -3,6 +3,7 @@ class Solution {
         ListNode ret = new ListNode(-1);
         ListNode tail = ret;
         int jin = 0;
+        // 记录进位，把进位加上
         while (l1 != null || l2 != null) {
             ListNode node = new ListNode();
 
@@ -28,6 +29,7 @@ class Solution {
 
 
         }
+        // 计算完进位如果不为零，最后加一位。
         if (jin != 0) {
             tail.next = new ListNode(1);
         }
