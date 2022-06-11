@@ -39,6 +39,7 @@ class Solution2 {
     public boolean isHappy(int n) {
         int slowRunner = n;
         int fastRunner = getNext(n);
+        // 如果有循环则快指针会追上来
         while (fastRunner != 1 && slowRunner != fastRunner) {
             slowRunner = getNext(slowRunner);
             fastRunner = getNext(getNext(fastRunner));
