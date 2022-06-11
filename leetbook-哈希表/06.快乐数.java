@@ -1,6 +1,7 @@
 class Solution {
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
+        // 不等于1，且没有循环，则一直找下去
         while (n != 1 && !set.contains(n)) {
             set.add(n);
             n = pf(n);
