@@ -6,6 +6,7 @@ class Solution {
             map.put(list1[i], i);
         }
 
+        // 用list存起来，找到小的就清空list 然后重新添加
         List<String> ret = new ArrayList<>();
         int indexSum = Integer.MAX_VALUE;
         for (int i = 0; i < list2.length; i++) {
