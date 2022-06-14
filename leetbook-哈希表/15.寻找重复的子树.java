@@ -9,6 +9,7 @@ class Solution {
         return ans;
     }
 
+    // 利用深度优先遍历，拼接出一个key，存放从当前结点（key为从当前结点拼接的）
     public String dfs(TreeNode node) {
         if (node == null) {
             return "#";
@@ -42,6 +43,7 @@ class Solution2 {
             return 0;
         }
         String serial = node.val + "," + dfs(node.left) + "," + dfs(node.right);
+        // 把每种字符串  都用数字标记，  如果存在字符串  就获取key
         int uid = trees.computeIfAbsent(serial, x -> t++);
         count.put(uid, count.getOrDefault(uid, 0) + 1);
         if (count.get(uid) == 2) {
