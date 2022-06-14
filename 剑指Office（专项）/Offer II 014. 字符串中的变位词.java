@@ -40,7 +40,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        new Solution().checkInclusion("abc", "cccccbabbbaaaa");
+        new 剑指Office.Solution().checkInclusion("abc", "cccccbabbbaaaa");
     }
 }
 class Solution3 {
