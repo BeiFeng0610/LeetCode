@@ -11,6 +11,7 @@ class Solution {
                     rows[i][index]++;
                     columns[j][index]++;
                     subboxes[i / 3][j / 3][index]++;
+                    // 如果一行 一列  一块 出现重复的数字，就返回false
                     if (rows[i][index] > 1 || columns[j][index] > 1 || subboxes[i / 3][j / 3][index] > 1) {
                         return false;
                     }
