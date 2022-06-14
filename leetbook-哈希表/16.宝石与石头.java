@@ -5,6 +5,7 @@ class Solution {
             set.add(c);
         }
         int ret = 0;
+        // 这个没啥可说的
         for (Character c : stones.toCharArray()) {
             if (set.contains(c)) {
                 ret++;
