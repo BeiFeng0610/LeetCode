@@ -9,6 +9,7 @@ class Solution {
         int max = 0;
         int len = s.length();
         int l = 0, r = l;
+        // 滑动窗口 保持窗口中没有重复的元素即可
         while (r < len) {
             char c = s.charAt(r);
             if (!set.contains(c)) {
@@ -42,8 +43,10 @@ class Solution2 {
         int start = 0; // 窗口开始位置
         for(int i = 0; i < n; i++) {
             int index = s.charAt(i);
+            // 把开始位置和，上一次出现位置比较
             start = Math.max(start, last[index] + 1);
             res   = Math.max(res, i - start + 1);
+            // 更新最后一次出现的位置
             last[index] = i;
         }
 
