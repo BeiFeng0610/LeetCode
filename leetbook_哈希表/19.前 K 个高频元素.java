@@ -18,6 +18,7 @@ class Solution {
                 return o1[1] - o2[1];
             }
         });
+        // 优先队列没满，就继续加，满了就判断 待加入元素  是否满足要求。
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             int num = entry.getKey(), count = entry.getValue();
             if (queue.size() == k) {
