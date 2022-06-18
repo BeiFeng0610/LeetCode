@@ -30,9 +30,12 @@ class Solution {
                 if ((long) nums[i] + nums[j] + nums[n - 2] + nums[n - 1] < target) {
                     continue;
                 }
+                // 前面主要是，判断当前循环下，前后数是否相等，还有剪枝的问题
+                // 限定后两个数的范围
                 int left = j + 1, right = n - 1;
                 while (left < right) {
                     int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                    // 如果等于则添加到list，判断左右，当前循环下，判断相邻数是否重复，重复则跳过
                     if (sum == target) {
                         ans.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
                         while (left < right && nums[left] == nums[left + 1]) {
@@ -43,8 +46,10 @@ class Solution {
                             right--;
                         }
                         right--;
+                        // 小于 则 左指针右移
                     } else if (sum < target) {
                         left++;
+                        // 大于 右指针左移
                     } else {
                         right--;
                     }
