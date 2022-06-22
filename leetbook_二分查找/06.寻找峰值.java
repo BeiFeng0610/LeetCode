@@ -1,6 +1,7 @@
 class Solution {
     public int findPeakElement(int[] nums) {
         int idx = 0;
+        // 暴力搜索
         for (int i = 1; i < nums.length; ++i) {
             if (nums[i] > nums[idx]) {
                 idx = i;
@@ -16,12 +17,16 @@ class Solution2 {
         int left = 0, right = n - 1, ans = -1;
         while (left <= right) {
             int mid = (left + right) / 2;
+
+            // 如果 min 大于两边的数，直接返回即可
             if (compare(nums, mid - 1, mid) < 0 && compare(nums, mid, mid + 1) > 0) {
                 ans = mid;
                 break;
             }
+            // 右数大于左数，就爬坡
             if (compare(nums, mid, mid + 1) < 0) {
                 left = mid + 1;
+                // 否则就反向爬坡
             } else {
                 right = mid - 1;
             }
@@ -38,6 +43,7 @@ class Solution2 {
         return new int[]{1, nums[idx]};
     }
 
+    // 判断边界，和两数大小
     public int compare(int[] nums, int idx1, int idx2) {
         int[] num1 = get(nums, idx1);
         int[] num2 = get(nums, idx2);
