@@ -16,7 +16,6 @@ class Solution {
 
             }
         }
-
         return new int[]{0, 0};
     }
 }
@@ -25,6 +24,7 @@ class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int l = 0, r = numbers.length - 1;
         while (l < r) {
+            // 双指针，缩小范围搜索
             int sum = numbers[l] + numbers[r];
             if (sum == target) {
                 return new int[]{l + 1, r + 1};
