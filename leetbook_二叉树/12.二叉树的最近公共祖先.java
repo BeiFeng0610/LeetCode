@@ -24,6 +24,8 @@ class Solution {
          * 满足条件有两种
          *      1. 左右孩子都返回true，表示左右孩子包含，p q
          *      2. 当前结点等一 p q 其中一个，且左右任一结点包含 另一个 p q
+         *
+         * 主要思想，是后序遍历
          */
         if ((lson && rson) || ((root.val == p.val || root.val == q.val) && (lson || rson))) {
             ans = root;
