@@ -71,6 +71,14 @@ class Solution {
             root.right = deleteNode(root.right, key);
             return root;
         }
+        /**
+         * 直接递归查找到需要删除的结点
+         * 如果没有结点，直接返回null
+         * 左空，返回右，右空返回左。
+         * 都不空，就开始找到中序遍历的下一个结点
+         * 然后从当前结点去找到下一节点，然后删除（断开连接）
+         * 然后把中序下一结点，覆盖需要删除的结点
+         */
         if (root.val == key) {
             if (root.left == null && root.right == null) {
                 return null;
