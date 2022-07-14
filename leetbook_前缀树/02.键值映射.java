@@ -73,6 +73,11 @@ class MapSum {
     }
 
     public void insert(String key, int val) {
+        /**
+         * 计算差值，更新新 key
+         * 差值的主要作用是，新key更新之后，前缀也要更新。
+         * 如果key没有添加，差值就是 val，直接叠加。
+         */
         int delta = val - map.getOrDefault(key, 0);
         map.put(key, val);
         for (int i = 1; i <= key.length(); ++i) {
