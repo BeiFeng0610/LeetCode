@@ -53,7 +53,7 @@ class Solution {
         for (int i = 1; i < n; i++) {
             add(nums[i - 1]);
             x = Math.max(x, check(nums[i]));
-        }[3,10,5,25,2,8]
+        }
         return x;
     }
 
