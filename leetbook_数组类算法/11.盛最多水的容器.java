@@ -3,11 +3,13 @@ class Solution {
         int l = 0, r = height.length - 1;
         int ans = 0;
         while (l < r) {
-            int area = Math.min(height[l], height[r]) * (r - l);
+            int mmin = Math.min(height[l], height[r]);
+            int area = mmin * (r - l);
             ans = Math.max(ans, area);
-            if (height[l] < height[r]) {
+            while (height[l] <= mmin && l < r) {
                 l++;
-            } else {
+            }
+            while (height[r] <= mmin && l < r) {
                 r--;
             }
         }
