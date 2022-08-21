@@ -23,9 +23,8 @@ class Solution {
         }
         if (slow.next == head) {
             return head.next;
-        } else {
-            slow.next = slow.next.next;
         }
+        slow.next = slow.next.next;
         return head;
     }
 }
