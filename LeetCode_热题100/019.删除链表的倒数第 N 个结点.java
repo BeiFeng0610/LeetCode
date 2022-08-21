@@ -10,10 +10,8 @@ class Solution {
         if (head == null) {
             return head;
         }
-        ListNode fast = new ListNode();
-        fast.next = head;
-        ListNode slow = new ListNode();
-        slow.next = head;
+        ListNode fast = new ListNode(-1, head);
+        ListNode slow = new ListNode(-1, head);
 
         while (fast != null && n != 0) {
             fast = fast.next;
