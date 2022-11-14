@@ -34,3 +34,26 @@ class Solution {
 
     }
 }
+
+class Solution {
+    private List<String> res = new ArrayList<>();
+    private List<String> list = new ArrayList<>();
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        backTracking(s, wordDict, 0);
+        return res;
+    }
+
+    private void backTracking(String s, List<String> wordDict, int start) {
+        if (start == s.length()) {
+            res.add(String.join(" ", list));
+            return;
+        }
+        for (int i = start; i < s.length(); i++) {
+            if (wordDict.contains(s.substring(start, i + 1))) {
+                list.add(s.substring(start, i + 1));
+                backTracking(s, wordDict, i + 1);
+                list.remove(list.size() - 1);
+            }
+        }
+    }
+}
