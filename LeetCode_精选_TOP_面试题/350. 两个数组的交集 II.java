@@ -28,3 +28,27 @@ class Solution {
         return res;
     }
 }
+
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        List<Integer> list = new ArrayList<>();
+        int n1 = nums1.length, n2 = nums2.length;
+        int[] res = new int[Math.min(n1, n2)];
+        int i1 = 0, i2 = 0, idx = 0;
+        while (i1 < n1 && i2 < n2) {
+            if (nums1[i1] == nums2[i2]) {
+                res[idx++] = nums1[i1];
+                i1++;
+                i2++;
+            } else if (nums1[i1] > nums2[i2]) {
+                i2++;
+            } else {
+                i1++;
+            }
+        }
+        return Arrays.copyOf(res, idx);
+    }
+}
