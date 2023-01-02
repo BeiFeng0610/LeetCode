@@ -50,6 +50,6 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        new 剑指Office.Solution().restoreIpAddresses("25525511135");
+        new 剑指Offer.Solution().restoreIpAddresses("25525511135");
     }
 }

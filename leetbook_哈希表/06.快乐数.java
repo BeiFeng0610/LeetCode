@@ -21,7 +21,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        new 剑指Office.Solution().isHappy(19);
+        new 剑指Offer.Solution().isHappy(19);
     }
 }
 class Solution2 {

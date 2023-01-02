@@ -43,7 +43,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        剑指Office.Solution s = new 剑指Office.Solution();
+        剑指Offer.Solution s = new 剑指Offer.Solution();
         System.out.println(s.decodeString("3[a2[bc]]"));
     }
 }
