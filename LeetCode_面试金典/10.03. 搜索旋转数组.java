@@ -1,30 +1,28 @@
 class Solution {
     public int search(int[] arr, int target) {
-        int n = arr.length;
-        int result = -1;
-        int l = 0, r = n - 1;
-        while (l <= r) {
-            int mid = (l + r + 1) >> 1;
+        int len = arr.length;
+        int l = 0, r = len - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
             if (arr[l] == target) {
                 return l;
-            } else if (arr[l] == arr[mid]) {
+            }
+            if (arr[l] == arr[mid]) {
                 l++;
             } else if (arr[l] < arr[mid]) {
-                if (arr[l] > target || arr[mid] < target) {
-                    l = mid;
+                if (target < arr[l] || target > arr[mid]) {
+                    l = mid + 1;
                 } else {
-                    l = l + 1;
                     r = mid;
                 }
             } else {
-                if (arr[l] > target && arr[mid] < target) {
-                    l = mid;
+                if (target < arr[l] && target > arr[mid]) {
+                    l = mid + 1;
                 } else {
-                    l = l + 1;
                     r = mid;
                 }
             }
         }
-        return result;
+        return arr[l] == target ? l : -1;
     }
 }
