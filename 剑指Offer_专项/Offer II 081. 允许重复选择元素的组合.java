@@ -30,6 +30,6 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        new 剑指Offer.Solution().combinationSum(new int[]{2, 3, 6, 7}, 7);
+        new 剑指Offer第2版.Solution().combinationSum(new int[]{2, 3, 6, 7}, 7);
     }
 }

@@ -30,6 +30,6 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        new 剑指Offer.Solution().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3});
+        new 剑指Offer第2版.Solution().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3});
     }
 }
