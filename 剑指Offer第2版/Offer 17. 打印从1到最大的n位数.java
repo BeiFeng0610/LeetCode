@@ -1,5 +1,3 @@
-package 剑指Offer第2版;
-
 class Solution {
     public int[] printNumbers(int n) {
         int len = (int) (Math.pow(10, n) - 1);
